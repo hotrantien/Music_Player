@@ -36,10 +36,11 @@
   .player.playing .icon-play {
     display: none;
   }
+
   
   .dashboard {
     padding: 16px 16px 14px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.55);
     position: fixed;
     top: 0;
     width: 100%;
@@ -49,7 +50,10 @@
     -webkit-backdrop-filter: blur(10px);
     border-radius: 8px;
   }
-  
+
+
+
+
   /* HEADER */
   header {
     text-align: center;

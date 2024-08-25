@@ -15,6 +15,7 @@ const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
 const currentTimeEl = $('#current-time')
 const durationTimeEl = $('#duration-time')
+const dashboard = $('.dashboard')
 
 const PLAYER_STORAGE_KEY = 'HTTIEN_PLAYER'
 
@@ -26,6 +27,48 @@ const app = {
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
+            name: 'Mây x Gió Mashup Remix',
+            singer: 'JANK x Sỹ Tây  Duzme',
+            path: './assets/music/Mây x Gió Mashup  JANK x Sỹ Tây  Duzme Remix.mp3',
+            image: './assets/img/Mây x Gió Mashup  JANK x Sỹ Tây  Duzme Remix.jpg'
+
+        },
+        {
+            name: 'NGÀY MAI EM ĐI',
+            singer: 'TOULIVER X LÊ HIẾU X SOOBIN HOÀNG SƠN',
+            path: './assets/music/NGÀY MAI EM ĐI.mp3',
+            image: './assets/img/NGÀY MAI EM ĐI.jpg'
+
+        },
+        {
+            name: 'THẰNG ĐIÊN',
+            singer: 'JUSTATEE x PHƯƠNG LY',
+            path: './assets/music/THẰNG ĐIÊN  JUSTATEE x PHƯƠNG LY.mp3',
+            image: './assets/img/THẰNG ĐIÊN  JUSTATEE x PHƯƠNG LY.jpg'
+
+        },
+        {
+            name: 'TỪNG LÀ',
+            singer: 'VŨ CÁT TƯỜNG',
+            path: './assets/music/TỪNG LÀ.mp3',
+            image: './assets/img/TỪNG LÀ.jpg'
+
+        },
+        {
+            name: 'Yêu Người Có Ước Mơ',
+            singer: 'Bùi Trường Linh',
+            path: './assets/music/Yêu Người Có Ước Mơ.mp3',
+            image: './assets/img/Yêu Người Có Ước Mơ.jpg'
+
+        },
+        {
+            name: 'Ngày ấy (Yesterday)',
+            singer: 'Em Ellata',
+            path: './assets/music/Em Ellata - Ngày ấy (Yesterday).mp3',
+            image: './assets/img/Em Ellata - Ngày ấy (Yesterday).jpg'
+
+        },
+        {
             name: 'Vùng Trời Bình Yên',
             singer: 'Tran Tien',
             path: './assets/music/song10.mp3',
@@ -34,74 +77,74 @@ const app = {
         },
         {
             name: 'Vết Mưa',
-            singer: 'Tran Tien',
+            singer: 'Vũ Cát Tường',
             path: './assets/music/song11.mp3',
             image: './assets/img/song11.jpg'
 
-        },
-        {
-            name: 'Xi Măng Phố Vol 1',
-            singer: 'Tran Tien',
-            path: './assets/music/song1.mp3',
-            image: './assets/img/song1.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 2',
-            singer: 'Tran Tien',
-            path: './assets/music/song2.mp3',
-            image: './assets/img/song2.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 3',
-            singer: 'Tran Tien',
-            path: './assets/music/song3.mp3',
-            image: './assets/img/song3.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 4',
-            singer: 'Tran Tien',
-            path: './assets/music/song4.mp3',
-            image: './assets/img/song4.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 5',
-            singer: 'Tran Tien',
-            path: './assets/music/song5.mp3',
-            image: './assets/img/song5.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 6',
-            singer: 'Tran Tien',
-            path: './assets/music/song6.mp3',
-            image: './assets/img/song6.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 7',
-            singer: 'Tran Tien',
-            path: './assets/music/song7.mp3',
-            image: './assets/img/song7.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 8',
-            singer: 'Tran Tien',
-            path: './assets/music/song8.mp3',
-            image: './assets/img/song8.jpg'
-
-        },
-        {
-            name: 'Xi Măng Phố Vol 9',
-            singer: 'Tran Tien',
-            path: './assets/music/song9.mp3',
-            image: './assets/img/song9.jpg'
-
         }
+        // ,{
+        //     name: 'Xi Măng Phố Vol 1',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song1.mp3',
+        //     image: './assets/img/song1.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 2',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song2.mp3',
+        //     image: './assets/img/song2.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 3',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song3.mp3',
+        //     image: './assets/img/song3.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 4',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song4.mp3',
+        //     image: './assets/img/song4.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 5',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song5.mp3',
+        //     image: './assets/img/song5.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 6',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song6.mp3',
+        //     image: './assets/img/song6.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 7',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song7.mp3',
+        //     image: './assets/img/song7.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 8',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song8.mp3',
+        //     image: './assets/img/song8.jpg'
+
+        // },
+        // {
+        //     name: 'Xi Măng Phố Vol 9',
+        //     singer: 'Tran Tien',
+        //     path: './assets/music/song9.mp3',
+        //     image: './assets/img/song9.jpg'
+
+        // }
     ],
     setConfig: function (key, value) {
         this.config[key] = value;
@@ -147,14 +190,18 @@ const app = {
         })
         cdThumbAnimate.pause()
 
-        //zoom CD 
+        //zoom CD khi cuon
         document.onscroll = function () {
-
             const scrollTop = window.scrollY
             const newCdWidth = cdWidth - scrollTop
-            //console.log(newCdWidth)
             cd.style.width = newCdWidth > 0 ? newCdWidth + 'px' : 0
             cd.style.opacity = newCdWidth / cdWidth
+
+            const opacityDashboardBackground = Math.min(scrollTop / cdWidth, 1)
+
+
+
+
         }
         // xu ly khi click play
         playBtn.onclick = function () {
@@ -258,6 +305,7 @@ const app = {
                     console.log('option')
                 }
             }
+
 
         }
 
