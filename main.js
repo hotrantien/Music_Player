@@ -13,6 +13,8 @@ const nextBtn = $('.btn-next')
 const randomBtn = $('.btn-random')
 const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
+const currentTimeEl = $('#current-time')
+const durationTimeEl = $('#duration-time')
 
 const PLAYER_STORAGE_KEY = 'HTTIEN_PLAYER'
 
@@ -24,17 +26,17 @@ const app = {
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
     songs: [
         {
-            name: 'Vết Mưa',
-            singer: 'Tran Tien',
-            path: './assets/music/song11.mp3',
-            image: './assets/img/song11.jpg'
-
-        },
-        {
             name: 'Vùng Trời Bình Yên',
             singer: 'Tran Tien',
             path: './assets/music/song10.mp3',
             image: './assets/img/song10.jpg'
+
+        },
+        {
+            name: 'Vết Mưa',
+            singer: 'Tran Tien',
+            path: './assets/music/song11.mp3',
+            image: './assets/img/song11.jpg'
 
         },
         {
@@ -180,9 +182,18 @@ const app = {
             if (audio.duration) {
                 const progressPercent = Math.floor(audio.currentTime / audio.duration * 100)
                 progress.value = progressPercent
-
+                currentTimeEl.textContent = formatTime(audio.currentTime);
             }
 
+        }
+        audio.onloadedmetadata = function () {
+            // Cập nhật thời gian tổng
+            durationTimeEl.textContent = formatTime(audio.duration);
+        }
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
         }
         //xu ly khi tua song
         progress.oninput = function (e) {
@@ -255,6 +266,19 @@ const app = {
         heading.textContent = this.currentSong.name
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.path
+
+        // Tạo đối tượng hình ảnh
+        const img = new Image();
+        img.crossOrigin = 'Anonymous'; // Đảm bảo bạn có quyền truy cập hình ảnh nếu nó đến từ một nguồn khác
+        img.src = this.currentSong.image;
+
+        img.onload = function () {
+            const color = getAverageColor(img);
+            document.body.style.background = `linear-gradient(45deg, ${color}, white)`;
+        };
+
+
+
     },
     loadConfig: function () {
         this.isRandom = this.config.isRandom
@@ -327,16 +351,31 @@ const app = {
     }
 };
 
+
+// Hàm phân tích màu từ hình ảnh
+function getAverageColor(img) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0, img.width, img.height);
+
+    const frame = ctx.getImageData(0, 0, img.width, img.height);
+    const data = frame.data;
+    let r = 0, g = 0, b = 0;
+    const length = data.length / 4;
+
+    for (let i = 0; i < length; i++) {
+        r += data[i * 4];
+        g += data[i * 4 + 1];
+        b += data[i * 4 + 2];
+    }
+
+    r = Math.round(r / length);
+    g = Math.round(g / length);
+    b = Math.round(b / length);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 app.start();
-
-
-// Render songs
-// Scroll top
-// Play / pause / seek:tua
-// CD rotate
-// Next / prev
-// Random
-// Next / Repeat when ended
-// Active song
-// Scroll active song into view
-// Play song when click

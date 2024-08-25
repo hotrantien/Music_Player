@@ -10,7 +10,8 @@
   }
   
   body {
-    background-color: #f5f5f5;
+  
+    transition: background-color 0.5s ease;
   }
   
   html {
@@ -38,12 +39,15 @@
   
   .dashboard {
     padding: 16px 16px 14px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.6);
     position: fixed;
     top: 0;
     width: 100%;
     max-width: 480px;
     border-bottom: 1px solid #ebebeb;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
   }
   
   /* HEADER */
@@ -130,7 +134,7 @@
   
   /* PLAYLIST */
   .playlist {
-    margin-top: 408px;
+    margin-top: 438px;
     padding: 12px;
   }
   
@@ -186,4 +190,11 @@
     color: #999;
     font-size: 18px;
   }
-  
+
+  .time-control {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #000;
+  }
+
