@@ -82,69 +82,6 @@ const app = {
             image: './assets/img/song11.jpg'
 
         }
-        // ,{
-        //     name: 'Xi Măng Phố Vol 1',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song1.mp3',
-        //     image: './assets/img/song1.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 2',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song2.mp3',
-        //     image: './assets/img/song2.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 3',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song3.mp3',
-        //     image: './assets/img/song3.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 4',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song4.mp3',
-        //     image: './assets/img/song4.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 5',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song5.mp3',
-        //     image: './assets/img/song5.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 6',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song6.mp3',
-        //     image: './assets/img/song6.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 7',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song7.mp3',
-        //     image: './assets/img/song7.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 8',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song8.mp3',
-        //     image: './assets/img/song8.jpg'
-
-        // },
-        // {
-        //     name: 'Xi Măng Phố Vol 9',
-        //     singer: 'Tran Tien',
-        //     path: './assets/music/song9.mp3',
-        //     image: './assets/img/song9.jpg'
-
-        // }
     ],
     setConfig: function (key, value) {
         this.config[key] = value;
@@ -322,7 +259,7 @@ const app = {
 
         img.onload = function () {
             const color = getAverageColor(img);
-            document.body.style.background = `linear-gradient(45deg, ${color}, white)`;
+            document.body.style.background = `linear-gradient(45deg,black,${color})`;
         };
 
 
